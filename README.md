@@ -1,4 +1,4 @@
-# react-component-generator README
+# React Component Generator
 
 ## Features
 
