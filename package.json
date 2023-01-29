@@ -9,7 +9,7 @@
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Other"
+    "Snippets"
   ],
   "activationEvents": [
     "onCommand:react-component-generator-with-css-modules.createComponent"
