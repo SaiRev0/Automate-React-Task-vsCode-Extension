@@ -1,6 +1,7 @@
 {
   "name": "react-component-generator-with-css-modules",
   "publisher": "SaiRev",
+  "icon": "React_Code_Generator.png",
   "displayName": "React Component Generator with css Modules",
   "description": "Creates react file and a css module file and will write a boilerplate code in the js file",
   "version": "0.0.1",
