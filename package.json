@@ -22,6 +22,10 @@
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SaiRev0/React-Component-Generator-vsCode-Extension"
+  },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
