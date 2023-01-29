@@ -1,5 +1,5 @@
 {
-  "name": "react-component-generator",
+  "name": "react-component-with-css-module-generator",
   "publisher": "SaiRev",
   "displayName": "React Component Generator with css Modules",
   "description": "Creates react file and a css module file and will write a boilerplate code in the js file",
