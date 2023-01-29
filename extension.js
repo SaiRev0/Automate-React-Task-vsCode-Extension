@@ -7,7 +7,7 @@ const fs = require("fs");
  */
 function activate(context) {
   let disposable = vscode.commands.registerCommand(
-    "react-component-generator.createComponent",
+    "react-component-generator-with-css-modules.createComponent",
     async () => {
       const folderName = await vscode.window.showInputBox({
         placeHolder: "Enter the file name",

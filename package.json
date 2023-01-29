@@ -1,5 +1,5 @@
 {
-  "name": "react-component-with-css-module-generator",
+  "name": "react-component-generator-with-css-modules",
   "publisher": "SaiRev",
   "displayName": "React Component Generator with css Modules",
   "description": "Creates react file and a css module file and will write a boilerplate code in the js file",
@@ -11,13 +11,13 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:react-component-generator.createComponent"
+    "onCommand:react-component-generator-with-css-modules.createComponent"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "react-component-generator.createComponent",
+        "command": "react-component-generator-with-css-modules.createComponent",
         "title": "Create Component"
       }
     ]
