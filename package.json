@@ -1,10 +1,10 @@
 {
-  "name": "react-component-generator-with-css-modules",
+  "name": "automate-react-task",
   "publisher": "SaiRev",
   "icon": "React_Code_Generator.png",
-  "displayName": "React Component Generator with css Modules",
-  "description": "Creates react file and a css module file and will write a boilerplate code in the js file",
-  "version": "0.0.5",
+  "displayName": "Automate React Task",
+  "description": "Help automate many react component creation tasks",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -15,18 +15,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "react-component-generator-with-css-modules.createComponent",
+        "command": "automate-react-task.createComponent",
         "title": "Create Component"
       },
       {
-        "command": "react-component-generator-with-css-modules.convertClassIntoClassName",
+        "command": "automate-react-task.convertClassIntoClassName",
         "title": "Convert Class into ClassName"
       }
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SaiRev0/React-Component-Generator-vsCode-Extension"
+    "url": "https://github.com/SaiRev0/Automate-React-Task-vsCode-Extension"
   },
   "scripts": {
     "lint": "eslint .",

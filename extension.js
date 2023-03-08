@@ -7,7 +7,7 @@ const fs = require("fs");
  */
 function activate(context) {
   let disposable = vscode.commands.registerCommand(
-    "react-component-generator-with-css-modules.createComponent",
+    "automate-react-task.createComponent",
     async () => {
       const folderName = await vscode.window.showInputBox({
         placeHolder: "Enter the file name",
@@ -55,7 +55,7 @@ export default ${folderName};
   );
 
   let disposable2 = vscode.commands.registerCommand(
-    "react-component-generator-with-css-modules.convertClassIntoClassName",
+    "automate-react-task.convertClassIntoClassName",
     async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
