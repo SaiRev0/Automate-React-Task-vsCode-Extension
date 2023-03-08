@@ -2,11 +2,11 @@
 
 ## Commands
 
-####Create Component
+#### Create Component
 
 Creates a folder containing a .js file and a .module.css file with the name entered by you, It speeds up the component creating process for react
 
-####Convert Class into ClassName
+#### Convert Class into ClassName
 
 Converts all the class="example" into className={styles.example}
 Converts html class into css modules className objects
