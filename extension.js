@@ -54,7 +54,38 @@ export default ${folderName};
     }
   );
 
-  context.subscriptions.push(disposable);
+  let disposable2 = vscode.commands.registerCommand(
+    "react-component-generator-with-css-modules.convertClassIntoClassName",
+    async () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      }
+
+      const document = editor.document;
+      const text = document.getText();
+      const newText = text.replace(
+        /class\s*=\s*["']\s*([^"'\s]+)\s*["']/g,
+        "className={styles.$1}"
+      );
+      if (text !== newText) {
+        const fullRange = new vscode.Range(
+          document.positionAt(0),
+          document.positionAt(text.length)
+        );
+        await editor.edit((builder) => {
+          builder.replace(fullRange, newText);
+        });
+        vscode.window.showInformationMessage("Class names converted!");
+      } else {
+        vscode.window.showInformationMessage(
+          "No class names found to convert."
+        );
+      }
+    }
+  );
+
+  context.subscriptions.push(disposable, disposable2);
 }
 
 module.exports = {
