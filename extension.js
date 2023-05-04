@@ -65,8 +65,23 @@ export default ${folderName};
       const document = editor.document;
       const text = document.getText();
       const newText = text.replace(
-        /class\s*=\s*["']\s*([^"'\s]+)\s*["']/g,
-        "className={styles.$1}"
+        /(?:class|className)\s*=\s*["']([^"']+)["']/g,
+        (match, classNames) => {
+          const convertedClassNames = classNames
+            .replace(/-/g, "_")
+            .split(" ")
+            .map((/** @type {any} */ className) => `styles.${className}`)
+            .join(" ");
+
+          if (convertedClassNames.includes(" ")) {
+            return `className=\`${convertedClassNames
+              .split(" ")
+              .map((/** @type {any} */ cls) => `\${${cls}}`)
+              .join(" ")}\``;
+          } else {
+            return `className={${convertedClassNames}}`;
+          }
+        }
       );
       if (text !== newText) {
         const fullRange = new vscode.Range(
@@ -76,7 +91,9 @@ export default ${folderName};
         await editor.edit((builder) => {
           builder.replace(fullRange, newText);
         });
-        vscode.window.showInformationMessage("Class names converted!");
+        vscode.window.showInformationMessage(
+          "Class names converted Successfully!"
+        );
       } else {
         vscode.window.showInformationMessage(
           "No class names found to convert."
@@ -85,7 +102,53 @@ export default ${folderName};
     }
   );
 
-  context.subscriptions.push(disposable, disposable2);
+  let disposable3 = vscode.commands.registerCommand(
+    "automate-react-task.convertHyphenToUnderscore",
+    async () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      }
+
+      const document = editor.document;
+      const text = document.getText();
+      const languageId = document.languageId;
+      const isStylesheet =
+        languageId === "scss" ||
+        languageId === "css" ||
+        languageId === "postcss";
+
+      if (!isStylesheet) {
+        vscode.window.showErrorMessage(
+          "This command can only be used in a stylesheet file."
+        );
+        return;
+      }
+
+      const newText = text.replace(/\.[a-zA-Z0-9_-]+/g, (match) => {
+        return match.replace(/-/g, "_");
+      });
+
+      if (text !== newText) {
+        const fullRange = new vscode.Range(
+          document.positionAt(0),
+          document.positionAt(text.length)
+        );
+        await editor.edit((builder) => {
+          builder.replace(fullRange, newText);
+        });
+        vscode.window.showInformationMessage(
+          "Class names converted successfully!"
+        );
+      } else {
+        vscode.window.showInformationMessage(
+          "No class names found to convert."
+        );
+      }
+    }
+  );
+
+  context.subscriptions.push(disposable, disposable2, disposable3);
 }
 
 module.exports = {

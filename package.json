@@ -4,7 +4,7 @@
   "icon": "React_Code_Generator.png",
   "displayName": "Automate React Task",
   "description": "Help automate many react component creation tasks",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.76.0"
   },
@@ -21,6 +21,10 @@
       {
         "command": "automate-react-task.convertClassIntoClassName",
         "title": "Convert Class into ClassName"
+      },
+      {
+        "command": "automate-react-task.convertHyphenToUnderscore",
+        "title": "Convert Hyphen to Underscore"
       }
     ]
   },

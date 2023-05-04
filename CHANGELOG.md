@@ -1,9 +1,6 @@
 # Change Log
 
-All notable changes to the "react-file-and-code-snippit" extension will be documented in this file.
+1. Fixed know bugs in the `Convert class into className` command. Now it is more reliable and less exceptions.
+2. Added New Command `Convert Hyphen to Underscore`.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+### Read more about it from the details page.
